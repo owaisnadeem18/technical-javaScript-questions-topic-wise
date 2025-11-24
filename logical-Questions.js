@@ -43,3 +43,27 @@
 // }
 
 // printFizzBuzz()
+
+// Count Number of occurences in a sentence using for of loop .
+
+let str = "Apple"
+
+const numberOfOcc = (string) => {
+    let case_sensitive_string = string.toLowerCase()
+
+    let occ = {}
+
+    for (let i of case_sensitive_string) {
+        if (occ.hasOwnProperty(i)) {
+            occ[i] ++
+        }
+        else {
+            occ[i] = 1
+        }
+    }
+
+    return occ
+
+}
+
+console.log(numberOfOcc(str))
