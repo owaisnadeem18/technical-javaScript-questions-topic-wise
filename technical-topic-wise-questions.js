@@ -55,3 +55,12 @@
 
 // console.log(greet * 45 ) // Output: NaN 
 
+// ⭐ slice() vs splice() — JavaScript Array Methods 
+
+let arr = [3 , 45 ,24 ,27 , 35 ,13]
+
+const copy = arr.slice(1,4)
+
+console.log(arr) // original does not modify 
+console.log(copy) // slice creates a new array , instead of modifying 
+
