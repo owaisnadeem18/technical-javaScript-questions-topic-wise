@@ -57,10 +57,54 @@
 
 // ⭐ slice() vs splice() — JavaScript Array Methods 
 
-let arr = [3 , 45 ,24 ,27 , 35 ,13]
+// let arr = [3 , 45 ,24 ,27 , 35 ,13]
 
-const copy = arr.slice(1,4)
+// const copy = arr.slice(1,4)
 
-console.log(arr) // original does not modify 
-console.log(copy) // slice creates a new array , instead of modifying 
+// console.log(arr) // original does not modify 
+// console.log(copy) // slice creates a new array , instead of modifying 
+
+// ⭐ Not Defined & Undefined 
+
+// console.log(a) // Not Defined 
+// let a
+
+// let b 
+// console.log(b)
+
+// ⭐ Hoisting in JavaScript 
+
+// ✅ 1. Function Declarations (Fully Hoisted)
+
+// Functions are hoisted with their complete definition.
+
+// let func = greet
+
+// func()
+
+// function greet() {
+//   console.log("Hello");
+// }
+
+// ⭐ Closure in JavaScript 
+
+// What is a Closure? 
+// A closure is a function that remembers the variables of its outer function even after the outer function has finished executing. 
+
+// function outer() {
+//   let count = 0;
+
+//   function inner() {
+//     count++;
+//     console.log(count);
+//   }
+
+//   return inner;
+// }
+
+// let fn = outer(); // outer function is done but count is remembered
+
+// fn(); // 1
+// fn(); // 2
+// fn(); // 3
 
