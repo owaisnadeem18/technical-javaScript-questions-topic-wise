@@ -185,20 +185,44 @@
 
 // Q5 — Promise Chain Execution
 
-Promise.resolve(10)
-  .then(x => {
-    console.log(x);
-    return x * 2;
-  })
-  .then(x => {
-    throw new Error("Failed Here");
-    return x * 3;
-  })
-  .then(x => console.log("This will run?", x))
-  .catch(err => console.log("Caught:", err.message))
-  .then(() => console.log("After Catch runs?"));
+// Promise.resolve(10)
+//   .then(x => {
+//     console.log(x);
+//     return x * 2;
+//   })
+//   .then(x => {
+//     throw new Error("Failed Here");
+//     return x * 3;
+//   })
+//   .then(x => console.log("This will run?", x))
+//   .catch(err => console.log("Caught:", err.message))
+//   .then(() => console.log("After Catch runs?"));
 
 // Output:
 // 10
 // Caught: Failed Here
 // After Catch runs?
+
+// Q6
+
+// console.log("1");
+
+// setTimeout(() => console.log("2"), 0);
+
+// Promise.resolve().then(() => console.log("3"));
+
+// console.log("4");
+
+// queueMicrotask(() => {
+//   console.log("5");
+// });
+
+// Promise.resolve().then(() => console.log("6"));
+
+// Output: 
+// 1
+// 4
+// 3
+// 5
+// 6
+// 2
