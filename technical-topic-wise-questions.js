@@ -151,14 +151,34 @@
 
 // Q3
 
-Promise.resolve().then(() => {
-  console.log("X");
-  setTimeout(() => console.log("Y"), 0);
-});
+// Promise.resolve().then(() => {
+//   console.log("X");
+//   setTimeout(() => console.log("Y"), 0);
+// });
 
-console.log("Z");
+// console.log("Z");
 
 // Output: 
 // Z
 // X
 // Y
+
+// Q4 — TRICKY
+
+console.log("start");
+
+setTimeout(() => {
+  console.log("timeout");
+}, 0);
+
+for (let i = 0; i < 5_000_000_000; i++) {}
+
+console.log("end");
+
+// Output: 
+// start 
+// end
+// timeout
+
+// Reason: 
+// JavaScript Runs timeout (macro task) code once after the program execution has been completed
