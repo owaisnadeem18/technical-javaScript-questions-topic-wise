@@ -132,15 +132,15 @@
 
 // Q2
 
-console.log(1);
+// console.log(1);
 
-setTimeout(() => console.log(2), 1000);
+// setTimeout(() => console.log(2), 1000);
 
-Promise.resolve().then(() => console.log(3));
+// Promise.resolve().then(() => console.log(3));
 
-setTimeout(() => console.log(4), 0);
+// setTimeout(() => console.log(4), 0);
 
-console.log(5);
+// console.log(5);
 
 // Output: 
 // 1 
@@ -148,3 +148,17 @@ console.log(5);
 // 3
 // 4
 // 2
+
+// Q3
+
+Promise.resolve().then(() => {
+  console.log("X");
+  setTimeout(() => console.log("Y"), 0);
+});
+
+console.log("Z");
+
+// Output: 
+// Z
+// X
+// Y
