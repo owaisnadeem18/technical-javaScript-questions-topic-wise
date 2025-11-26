@@ -112,20 +112,39 @@
 
 // Q1
 
-console.log("A");
+// console.log("A");
 
-setTimeout(() => {
-  console.log("B"); // less prior then sync code and promises in JavaScript. 
-}, 0);
+// setTimeout(() => {
+//   console.log("B"); // less prior then sync code and promises in JavaScript. 
+// }, 0);
 
-Promise.resolve().then(() => {
-  console.log("C"); // promise have highest priority after sync code 
-});
+// Promise.resolve().then(() => {
+//   console.log("C"); // promise have highest priority after sync code 
+// });
 
-console.log("D");
+// console.log("D");
 
 // Output: 
 // A 
 // D 
 // C 
 // B 
+
+// Q2
+
+console.log(1);
+
+setTimeout(() => console.log(2), 1000);
+
+Promise.resolve().then(() => console.log(3));
+
+setTimeout(() => console.log(4), 0);
+
+console.log(5);
+
+// Output: 
+// 1 
+// 5 
+// 3
+// 4
+// 2
