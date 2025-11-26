@@ -165,15 +165,15 @@
 
 // Q4 — TRICKY
 
-console.log("start");
+// console.log("start");
 
-setTimeout(() => {
-  console.log("timeout");
-}, 0);
+// setTimeout(() => {
+//   console.log("timeout");
+// }, 0);
 
-for (let i = 0; i < 5_000_000_000; i++) {}
+// for (let i = 0; i < 5_000_000_000; i++) {}
 
-console.log("end");
+// console.log("end");
 
 // Output: 
 // start 
@@ -182,3 +182,23 @@ console.log("end");
 
 // Reason: 
 // JavaScript Runs timeout (macro task) code once after the program execution has been completed
+
+// Q5 — Promise Chain Execution
+
+Promise.resolve(10)
+  .then(x => {
+    console.log(x);
+    return x * 2;
+  })
+  .then(x => {
+    throw new Error("Failed Here");
+    return x * 3;
+  })
+  .then(x => console.log("This will run?", x))
+  .catch(err => console.log("Caught:", err.message))
+  .then(() => console.log("After Catch runs?"));
+
+// Output:
+// 10
+// Caught: Failed Here
+// After Catch runs?
