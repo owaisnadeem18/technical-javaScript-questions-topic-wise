@@ -79,26 +79,26 @@
 
 // Q4 — Tricky Nested async/await
 
-async function a() {
-  console.log("a start");
-  await b();
-  console.log("a end");
-}
+// async function a() {
+//   console.log("a start");
+//   await b();
+//   console.log("a end");
+// }
 
-async function b() {
-  console.log("b start");
-  await c();
-  console.log("b end");
-}
+// async function b() {
+//   console.log("b start");
+//   await c();
+//   console.log("b end");
+// }
 
-async function c() {
-  console.log("c start");
-  return Promise.resolve("c end");
-}
+// async function c() {
+//   console.log("c start");
+//   return Promise.resolve("c end");
+// }
 
-console.log("script start");
-a();
-console.log("script end");
+// console.log("script start");
+// a();
+// console.log("script end");
 
 // Output: 
 // script start
@@ -109,3 +109,25 @@ console.log("script end");
 // b end
 // a end
 // script end 
+
+// Q5 — Microtask/Macrotask Mix
+
+console.log("1");
+
+setTimeout(() => console.log("2"), 0);
+
+Promise.resolve().then(() => console.log("3"));
+
+console.log("4");
+
+queueMicrotask(() => console.log("5"));
+
+Promise.resolve().then(() => console.log("6"));
+
+// Output: 
+// 1
+// 4
+// 3
+// 5
+// 6
+// 2
