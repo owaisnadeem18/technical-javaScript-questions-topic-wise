@@ -112,17 +112,17 @@
 
 // Q5 — Microtask/Macrotask Mix
 
-console.log("1");
+// console.log("1");
 
-setTimeout(() => console.log("2"), 0);
+// setTimeout(() => console.log("2"), 0);
 
-Promise.resolve().then(() => console.log("3"));
+// Promise.resolve().then(() => console.log("3"));
 
-console.log("4");
+// console.log("4");
 
-queueMicrotask(() => console.log("5"));
+// queueMicrotask(() => console.log("5"));
 
-Promise.resolve().then(() => console.log("6"));
+// Promise.resolve().then(() => console.log("6"));
 
 // Output: 
 // 1
@@ -131,3 +131,18 @@ Promise.resolve().then(() => console.log("6"));
 // 5
 // 6
 // 2
+
+// Q6 — Promise Race with setTimeout
+
+Promise.resolve()
+  .then(() => console.log("promise1"))
+  .then(() => setTimeout(() => console.log("timeout1"), 0))
+  .then(() => console.log("promise2"));
+
+setTimeout(() => console.log("timeout2"), 0);
+
+// Output:
+// promise1
+// timeout1
+// promise2
+// timeout2
