@@ -134,15 +134,33 @@
 
 // Q6 — Promise Race with setTimeout
 
-Promise.resolve()
-  .then(() => console.log("promise1"))
-  .then(() => setTimeout(() => console.log("timeout1"), 0))
-  .then(() => console.log("promise2"));
+// Promise.resolve()
+//   .then(() => console.log("promise1"))
+//   .then(() => setTimeout(() => console.log("timeout1"), 0))
+//   .then(() => console.log("promise2"));
 
-setTimeout(() => console.log("timeout2"), 0);
+// setTimeout(() => console.log("timeout2"), 0);
 
 // Output:
 // promise1
-// timeout1
 // promise2
 // timeout2
+// timeout1
+
+// Q7 — Async Await + setTimeout mix
+
+async function test() {
+  console.log("1");
+  await new Promise(res => setTimeout(res, 0));
+  console.log("2");
+}
+
+console.log("3");
+test();
+console.log("4");
+
+// Output: 
+// 3 
+// 1 
+// 4
+// 2
