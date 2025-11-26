@@ -108,3 +108,24 @@
 // fn(); // 2
 // fn(); // 3
 
+// LEVEL: ADVANCED — Event Loop, Promises, Microtasks/Macrotasks 
+
+// Q1
+
+console.log("A");
+
+setTimeout(() => {
+  console.log("B"); // less prior then sync code and promises in JavaScript. 
+}, 0);
+
+Promise.resolve().then(() => {
+  console.log("C"); // promise have highest priority after sync code 
+});
+
+console.log("D");
+
+// Output: 
+// A 
+// D 
+// C 
+// B 
