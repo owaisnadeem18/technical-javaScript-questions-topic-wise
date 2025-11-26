@@ -55,20 +55,20 @@
 
 // Q3 — Async/Await with Immediate and Delayed Execution
 
-async function foo() {
-  console.log("foo start");
-  await bar();
-  console.log("foo end");
-}
+// async function foo() {
+//   console.log("foo start");
+//   await bar();
+//   console.log("foo end");
+// }
 
-async function bar() {
-  console.log("bar");
-  return Promise.resolve();
-}
+// async function bar() {
+//   console.log("bar");
+//   return Promise.resolve();
+// }
 
-console.log("script start");
-foo();
-console.log("script end");
+// console.log("script start");
+// foo();
+// console.log("script end");
 
 // Output: 
 // script start
@@ -76,3 +76,36 @@ console.log("script end");
 // bar
 // foo end
 // script end
+
+// Q4 — Tricky Nested async/await
+
+async function a() {
+  console.log("a start");
+  await b();
+  console.log("a end");
+}
+
+async function b() {
+  console.log("b start");
+  await c();
+  console.log("b end");
+}
+
+async function c() {
+  console.log("c start");
+  return Promise.resolve("c end");
+}
+
+console.log("script start");
+a();
+console.log("script end");
+
+// Output: 
+// script start
+// a start
+// b start
+// c start
+// script end
+// b end
+// a end
+// script end 
