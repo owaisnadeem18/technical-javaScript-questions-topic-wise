@@ -94,15 +94,15 @@
 
 // Promise.resolve().then(() => console.log("promise1"));
 
-// Promise.resolve().then(() => console.log("promise2"));
+// Promise.resolve().then(() => console.log("promise2"));         
 
 // console.log("end");
-
+                                                                                                              
 // Output: 
-
+                                          
 // start
 // end
 // promise1
 // promise2
 // timeout1
-// timeout2
+// timeout2                   
