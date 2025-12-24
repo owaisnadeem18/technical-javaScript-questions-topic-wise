@@ -40,21 +40,21 @@
 
 // ------------------ 
 
-console.log("start");
+// console.log("start");
 
-setTimeout(() => {
-  console.log("timeout");
-}, 0);
+// setTimeout(() => {
+//   console.log("timeout");
+// }, 0);
 
-Promise.resolve()
-  .then(() => {
-    console.log("promise-1");
-  })
-  .then(() => {
-    console.log("promise-2");
-  });
+// Promise.resolve()
+// .then(() => {
+//   console.log("promise-1");
+// })
+// .then(() => {
+//   console.log("promise-2");
+// });
 
-console.log("end");
+// console.log("end");
 
 // Output: 
 // start
@@ -62,3 +62,22 @@ console.log("end");
 // promise-1
 // promise-2
 // timeout
+
+// ------------------ 
+
+async function demo() {
+  console.log("A");
+  await Promise.resolve();
+  console.log("B");
+}
+
+console.log("C");
+demo();
+console.log("D");
+
+// Output:
+
+// c
+// a
+// d 
+// b 
