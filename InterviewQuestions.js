@@ -65,15 +65,15 @@
 
 // ------------------ 
 
-async function demo() {
-  console.log("A");
-  await Promise.resolve();
-  console.log("B");
-}
+// async function demo() {
+//   console.log("A");
+//   await Promise.resolve();
+//   console.log("B");
+// }
 
-console.log("C");
-demo();
-console.log("D");
+// console.log("C");
+// demo();
+// console.log("D");
 
 // Output:
 
@@ -81,3 +81,28 @@ console.log("D");
 // a
 // d 
 // b 
+
+// ---------------- 
+
+// 🔁 EVENT LOOP / PROMISE / ASYNC 
+
+// console.log("start");
+
+// setTimeout(() => console.log("timeout1"), 0);
+
+// setTimeout(() => console.log("timeout2"), 0);
+
+// Promise.resolve().then(() => console.log("promise1"));
+
+// Promise.resolve().then(() => console.log("promise2"));
+
+// console.log("end");
+
+// Output: 
+
+// start
+// end
+// promise1
+// promise2
+// timeout1
+// timeout2
